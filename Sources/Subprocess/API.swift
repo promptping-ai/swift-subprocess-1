@@ -161,6 +161,13 @@ public func run<Result, Input: InputProtocol, Output: OutputProtocol, Error: Err
 ///     as the default buffer size. Larger buffer sizes may improve performance for
 ///     subprocesses that produce large amounts of output, while smaller buffer sizes
 ///     may reduce memory usage and improve responsiveness for interactive applications.
+///     **Important:** On macOS, the default page-size buffer (typically 4096 bytes)
+///     causes `DispatchIO` to wait until the buffer fills or EOF before delivering data.
+///     For streaming protocols (NDJSON, line-delimited output) where individual messages
+///     are smaller than a page, this means output is only delivered after the process
+///     exits. Set `preferredBufferSize` to `1` to receive output incrementally as it
+///     becomes available. The `LineSequence` returned by `.lines()` efficiently
+///     reassembles the byte-level reads into complete lines.
 ///   - isolation: the isolation context to run the body closure.
 ///   - body: The custom execution body to manually control the running process.
 /// - Returns: an `ExecutableResult` type containing the return value of the closure.
@@ -208,6 +215,13 @@ public func run<Result, Input: InputProtocol, Error: ErrorOutputProtocol>(
 ///     as the default buffer size. Larger buffer sizes may improve performance for
 ///     subprocesses that produce large amounts of output, while smaller buffer sizes
 ///     may reduce memory usage and improve responsiveness for interactive applications.
+///     **Important:** On macOS, the default page-size buffer (typically 4096 bytes)
+///     causes `DispatchIO` to wait until the buffer fills or EOF before delivering data.
+///     For streaming protocols (NDJSON, line-delimited output) where individual messages
+///     are smaller than a page, this means output is only delivered after the process
+///     exits. Set `preferredBufferSize` to `1` to receive output incrementally as it
+///     becomes available. The `LineSequence` returned by `.lines()` efficiently
+///     reassembles the byte-level reads into complete lines.
 ///   - isolation: the isolation context to run the body closure.
 ///   - body: The custom execution body to manually control the running process
 /// - Returns: an `ExecutableResult` type containing the return value of the closure.
@@ -254,6 +268,13 @@ public func run<Result, Input: InputProtocol, Output: OutputProtocol>(
 ///     as the default buffer size. Larger buffer sizes may improve performance for
 ///     subprocesses that produce large amounts of output, while smaller buffer sizes
 ///     may reduce memory usage and improve responsiveness for interactive applications.
+///     **Important:** On macOS, the default page-size buffer (typically 4096 bytes)
+///     causes `DispatchIO` to wait until the buffer fills or EOF before delivering data.
+///     For streaming protocols (NDJSON, line-delimited output) where individual messages
+///     are smaller than a page, this means output is only delivered after the process
+///     exits. Set `preferredBufferSize` to `1` to receive output incrementally as it
+///     becomes available. The `LineSequence` returned by `.lines()` efficiently
+///     reassembles the byte-level reads into complete lines.
 ///   - isolation: the isolation context to run the body closure.
 ///   - body: The custom execution body to manually control the running process
 /// - Returns: An `ExecutableResult` type containing the return value of the closure.
@@ -298,6 +319,13 @@ public func run<Result, Error: ErrorOutputProtocol>(
 ///     as the default buffer size. Larger buffer sizes may improve performance for
 ///     subprocesses that produce large amounts of output, while smaller buffer sizes
 ///     may reduce memory usage and improve responsiveness for interactive applications.
+///     **Important:** On macOS, the default page-size buffer (typically 4096 bytes)
+///     causes `DispatchIO` to wait until the buffer fills or EOF before delivering data.
+///     For streaming protocols (NDJSON, line-delimited output) where individual messages
+///     are smaller than a page, this means output is only delivered after the process
+///     exits. Set `preferredBufferSize` to `1` to receive output incrementally as it
+///     becomes available. The `LineSequence` returned by `.lines()` efficiently
+///     reassembles the byte-level reads into complete lines.
 ///   - isolation: the isolation context to run the body closure.
 ///   - body: The custom execution body to manually control the running process
 /// - Returns: An `ExecutableResult` type containing the return value of the closure.
@@ -342,6 +370,13 @@ public func run<Result, Output: OutputProtocol>(
 ///     as the default buffer size. Larger buffer sizes may improve performance for
 ///     subprocesses that produce large amounts of output, while smaller buffer sizes
 ///     may reduce memory usage and improve responsiveness for interactive applications.
+///     **Important:** On macOS, the default page-size buffer (typically 4096 bytes)
+///     causes `DispatchIO` to wait until the buffer fills or EOF before delivering data.
+///     For streaming protocols (NDJSON, line-delimited output) where individual messages
+///     are smaller than a page, this means output is only delivered after the process
+///     exits. Set `preferredBufferSize` to `1` to receive output incrementally as it
+///     becomes available. The `LineSequence` returned by `.lines()` efficiently
+///     reassembles the byte-level reads into complete lines.
 ///   - isolation: the isolation context to run the body closure.
 ///   - body: The custom execution body to manually control the running process
 /// - Returns: an `ExecutableResult` type containing the return value of the closure.
@@ -592,6 +627,13 @@ public func run<Result, Input: InputProtocol, Output: OutputProtocol, Error: Err
 ///     as the default buffer size. Larger buffer sizes may improve performance for
 ///     subprocesses that produce large amounts of output, while smaller buffer sizes
 ///     may reduce memory usage and improve responsiveness for interactive applications.
+///     **Important:** On macOS, the default page-size buffer (typically 4096 bytes)
+///     causes `DispatchIO` to wait until the buffer fills or EOF before delivering data.
+///     For streaming protocols (NDJSON, line-delimited output) where individual messages
+///     are smaller than a page, this means output is only delivered after the process
+///     exits. Set `preferredBufferSize` to `1` to receive output incrementally as it
+///     becomes available. The `LineSequence` returned by `.lines()` efficiently
+///     reassembles the byte-level reads into complete lines.
 ///   - isolation: the isolation context to run the body closure.
 ///   - body: The custom execution body to manually control the running process
 /// - Returns an executableResult type containing the return value
@@ -651,6 +693,13 @@ public func run<Result, Input: InputProtocol, Error: ErrorOutputProtocol>(
 ///     as the default buffer size. Larger buffer sizes may improve performance for
 ///     subprocesses that produce large amounts of output, while smaller buffer sizes
 ///     may reduce memory usage and improve responsiveness for interactive applications.
+///     **Important:** On macOS, the default page-size buffer (typically 4096 bytes)
+///     causes `DispatchIO` to wait until the buffer fills or EOF before delivering data.
+///     For streaming protocols (NDJSON, line-delimited output) where individual messages
+///     are smaller than a page, this means output is only delivered after the process
+///     exits. Set `preferredBufferSize` to `1` to receive output incrementally as it
+///     becomes available. The `LineSequence` returned by `.lines()` efficiently
+///     reassembles the byte-level reads into complete lines.
 ///   - isolation: the isolation context to run the body closure.
 ///   - body: The custom execution body to manually control the running process
 /// - Returns an executableResult type containing the return value
@@ -707,6 +756,13 @@ public func run<Result, Input: InputProtocol, Output: OutputProtocol>(
 ///     as the default buffer size. Larger buffer sizes may improve performance for
 ///     subprocesses that produce large amounts of output, while smaller buffer sizes
 ///     may reduce memory usage and improve responsiveness for interactive applications.
+///     **Important:** On macOS, the default page-size buffer (typically 4096 bytes)
+///     causes `DispatchIO` to wait until the buffer fills or EOF before delivering data.
+///     For streaming protocols (NDJSON, line-delimited output) where individual messages
+///     are smaller than a page, this means output is only delivered after the process
+///     exits. Set `preferredBufferSize` to `1` to receive output incrementally as it
+///     becomes available. The `LineSequence` returned by `.lines()` efficiently
+///     reassembles the byte-level reads into complete lines.
 ///   - isolation: the isolation context to run the body closure.
 ///   - body: The custom execution body to manually control the running process
 /// - Returns an executableResult type containing the return value
@@ -748,6 +804,13 @@ public func run<Result, Error: ErrorOutputProtocol>(
 ///     as the default buffer size. Larger buffer sizes may improve performance for
 ///     subprocesses that produce large amounts of output, while smaller buffer sizes
 ///     may reduce memory usage and improve responsiveness for interactive applications.
+///     **Important:** On macOS, the default page-size buffer (typically 4096 bytes)
+///     causes `DispatchIO` to wait until the buffer fills or EOF before delivering data.
+///     For streaming protocols (NDJSON, line-delimited output) where individual messages
+///     are smaller than a page, this means output is only delivered after the process
+///     exits. Set `preferredBufferSize` to `1` to receive output incrementally as it
+///     becomes available. The `LineSequence` returned by `.lines()` efficiently
+///     reassembles the byte-level reads into complete lines.
 ///   - isolation: the isolation context to run the body closure.
 ///   - body: The custom execution body to manually control the running process
 /// - Returns an executableResult type containing the return value
@@ -785,6 +848,13 @@ public func run<Result, Output: OutputProtocol>(
 ///     as the default buffer size. Larger buffer sizes may improve performance for
 ///     subprocesses that produce large amounts of output, while smaller buffer sizes
 ///     may reduce memory usage and improve responsiveness for interactive applications.
+///     **Important:** On macOS, the default page-size buffer (typically 4096 bytes)
+///     causes `DispatchIO` to wait until the buffer fills or EOF before delivering data.
+///     For streaming protocols (NDJSON, line-delimited output) where individual messages
+///     are smaller than a page, this means output is only delivered after the process
+///     exits. Set `preferredBufferSize` to `1` to receive output incrementally as it
+///     becomes available. The `LineSequence` returned by `.lines()` efficiently
+///     reassembles the byte-level reads into complete lines.
 ///   - isolation: the isolation context to run the body closure.
 ///   - body: The custom configuration body to manually control
 ///       the running process, write to its standard input, stream
