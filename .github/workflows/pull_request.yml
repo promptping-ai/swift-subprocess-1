@@ -67,7 +67,7 @@ jobs:
 
   cmake_build:
     name: CMake Build
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     container: swiftlang/swift:nightly-noble
     steps:
       - name: checkout sources
